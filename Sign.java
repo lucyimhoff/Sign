@@ -6,18 +6,19 @@ public class Sign{
         message = m;
     }
     public int numberOfLines(){
-        int lines = message.length() / width + 1;
+        int lines = message.length() / width;
         if(message.length() % width == 0) return lines;
-        return lines + 1;
+        else return lines + 1;
     }
     
     public String getLines(){
         String s = "";
         int i = 0;
+        if(message.length() == 0) return null;
         while(i < message.length()){
             s+= message.substring(i, i + 1);
             i++;
-            if(i % width == 0) s += ";";
+            if(i % width == 0 && i != message.length()) s += ";";
         }
         return s;
 
